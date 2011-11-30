@@ -39,6 +39,10 @@ int main(int argc, char *argv[])
 
     // Allocate some data
     double *ptr = new double[len_ptr];
+    for (int i = 0 ; i < len_ptr ; i++)
+    {
+        ptr[i] = double(i);
+    }
 
     // Save it in the output folder
     char filename[1024];
