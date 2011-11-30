@@ -34,9 +34,9 @@ int main(int argc, char *argv[])
 {
     Log_Git_Info(std::string("output/"));
 
+    const int len_ptr  = 100;
 
     // Allocate some data
-    const int len_ptr = 100;
     double *ptr = new double[len_ptr];
 
     // Save it in the output folder
