@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
         filename = std::string("output/data_") + IntToStr<int>(i, 6, 0) + ".bin";
         fp_out.open(filename.c_str(), std::ios::out | std::ios::binary);
         assert(fp_out.is_open());
-        fp_out.write(ptr, 100*sizeof(double));
+        fp_out.write(reinterpret_cast<char*>(ptr), 100*sizeof(double));
         fp_out.close();
     }
 
