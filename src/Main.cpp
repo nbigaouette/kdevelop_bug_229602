@@ -11,6 +11,7 @@
 #include <fstream>
 #include <sstream>
 #include <cassert>
+#include <cstring>
 
 #include "Version.hpp"
 #include "Git_Diff.hpp"
@@ -39,12 +40,12 @@ int main(int argc, char *argv[])
     double *ptr = new double[len_ptr];
 
     // Save it in the output folder
-    std::ofstream fp_out;
-    std::string filename;
-    for (int i = 0 ; i < 10000 ; i++)
+    char filename[1024];
+    memset(filename, 0, 1024*sizeof(char));
+    for (int i = 0 ; i < nb_saves ; i++)
     {
-        filename = std::string("output/data_") + IntToStr<int>(i, 6, 0) + ".bin";
-        fp_out.open(filename.c_str(), std::ios::out | std::ios::binary);
+        sprintf(filename, "output/data_%010d.bin", i);
+        std::ofstream fp_out(filename, std::ios::out | std::ios::binary);
         assert(fp_out.is_open());
         fp_out.write(reinterpret_cast<char*>(ptr), len_ptr*sizeof(double));
         fp_out.close();
