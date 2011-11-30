@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
     Log_Git_Info(std::string("output/"));
 
     const int len_ptr  = 100;
+    const int nb_saves = 100000;
 
     // Allocate some data
     double *ptr = new double[len_ptr];
