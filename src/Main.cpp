@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
 
 
     // Allocate some data
-    double *ptr = new double[100];
+    const int len_ptr = 100;
+    double *ptr = new double[len_ptr];
 
     // Save it in the output folder
     std::ofstream fp_out;
@@ -45,7 +46,7 @@ int main(int argc, char *argv[])
         filename = std::string("output/data_") + IntToStr<int>(i, 6, 0) + ".bin";
         fp_out.open(filename.c_str(), std::ios::out | std::ios::binary);
         assert(fp_out.is_open());
-        fp_out.write(reinterpret_cast<char*>(ptr), 100*sizeof(double));
+        fp_out.write(reinterpret_cast<char*>(ptr), len_ptr*sizeof(double));
         fp_out.close();
     }
 
