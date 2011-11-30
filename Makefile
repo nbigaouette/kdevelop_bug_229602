@@ -14,7 +14,7 @@
 # Project options
 # Intel ICC sets LIB. Reset it here to make sure it's empty. Else code won't compile.
 LIB             :=
-BIN              = project_name
+BIN              = kdevelop_bug229602
 SRCDIRS          = src
 TESTDIRS         = unit_testing
 SRCEXT           = cpp
