@@ -44,12 +44,15 @@ int main(int argc, char *argv[])
         ptr[i] = double(i);
     }
 
+    // Create the folder
+    system("mkdir -p output/simulation_name");
+
     // Save it in the output folder
     char filename[1024];
     memset(filename, 0, 1024*sizeof(char));
     for (int i = 0 ; i < nb_saves ; i++)
     {
-        sprintf(filename, "output/data_%010d.bin", i);
+        sprintf(filename, "output/simulation_name/data_%010d.bin", i);
         std::ofstream fp_out(filename, std::ios::out | std::ios::binary);
         assert(fp_out.is_open());
         fp_out.write(reinterpret_cast<char*>(ptr), len_ptr*sizeof(double));
